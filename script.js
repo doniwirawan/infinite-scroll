@@ -17,6 +17,7 @@ async function getPosts() {
 // show post in DOM
 async function showPosts() {
     const posts = await getPosts();
+
     posts.forEach(post => {
         const postEl = document.createElement('div');
 
@@ -51,14 +52,12 @@ function showLoading() {
 //filter post by input
 function filterPosts(e) {
     const term = e.target.value.toUpperCase();
-    console.log(term);
     const posts = document.querySelectorAll('.post');
-    console.log(posts);
 
     posts.forEach(post => {
-        const title = post.querySelector('.post-title').innerText.toUpperCase;
+        const title = post.querySelector('.post-title').innerText.toUpperCase();
 
-        const body = post.querySelector('.post-body').innerText.toUpperCase;
+        const body = post.querySelector('.post-body').innerText.toUpperCase();
 
         if (title.indexOf(term) > -1 || body.indexOf(term) > -1) {
             post.style.display = 'flex';
